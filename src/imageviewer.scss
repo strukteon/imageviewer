@@ -1,0 +1,149 @@
+.no-scroll {
+  overflow: hidden;
+}
+
+[data-viewableimage] {
+  cursor: zoom-in;
+}
+
+.imageviewer {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+
+  &.imageviewer__visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .imageviewer__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: wheat;
+    z-index: 0;
+  }
+
+  .imageviewer__controls {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+    .imageviewer__close, .imageviewer__next, .imageviewer__prev {
+      padding: 1rem;
+      border: 0 solid transparent;
+      border-radius: 50%;
+      transition: background-color .2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .imageviewer__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .imageviewer__arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+
+        .disabled {
+          color: rgba(255, 255, 255, 0.5);
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+
+        .imageviewer__prev {
+            margin-left: 1rem;
+        }
+
+        .imageviewer__next {
+            margin-right: 1rem;
+        }
+    }
+  }
+
+  .imageviewer__container {
+    position: fixed;
+    width: 300vw;
+    height: 100vh;
+    z-index: 1;
+    transform: translateX(-33.3%);
+    display: flex;
+    flex-direction: row;
+
+    & > img, .spinner-container {
+      height: 100vh;
+      width: 100vw;
+      object-fit: contain;
+      padding: 3rem;
+      box-sizing: border-box;
+    }
+
+    .spinner-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .spinner {
+        color: white;
+        font-size: 2rem;
+      }
+    }
+
+    &.animate-next-image {
+      animation: imageviewer__next_image .2s ease;
+    }
+
+    &.animate-previous-image {
+      animation: imageviewer__previous_image .2s ease;
+    }
+  }
+}
+
+@keyframes imageviewer__next_image {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.3%);
+  }
+}
+
+@keyframes imageviewer__previous_image {
+  from {
+    transform: translateX(-66.6%);
+  }
+  to {
+    transform: translateX(-33.3%);
+  }
+}

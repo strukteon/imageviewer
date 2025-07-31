@@ -1,0 +1,17 @@
+{
+  "name": "imageviewer",
+  "version": "1.0.0",
+  "main": "imageviewer.js",
+  "scripts": {
+    "compile": "npx rollup -c && npx sass --style compressed src/imageviewer.scss dist/imageviewer.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "sass": "^1.89.2"
+  }
+}
