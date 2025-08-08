@@ -20,12 +20,12 @@ const imageviewer = {
                     </div>
                 </div>
                 <div class="imageviewer__container">
-                    <img class="imageviewer__image__previous" src="https://placehold.co/600x400">
-                    <img class="imageviewer__image__current" src="https://placehold.co/600x400">
+                    <img class="imageviewer__image__previous" src="https://placehold.co/600x400" alt="Previous image not loaded yet">
+                    <img class="imageviewer__image__current" src="https://placehold.co/600x400" alt="Current image not loaded yet">
                     <div class="spinner-container">
                         <i class="spinner fa-solid fa-spinner fa-spin-pulse"></i>
                     </div>
-                    <img class="imageviewer__image__next" src="https://placehold.co/600x400">
+                    <img class="imageviewer__image__next" src="https://placehold.co/600x400" alt="Next image not loaded yet">
                 </div>
             </div>
         `);
